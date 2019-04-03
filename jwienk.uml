@@ -1,0 +1,38 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<Diagram>
+  <ID>JAVA</ID>
+  <OriginalElement>nl.jwienk</OriginalElement>
+  <nodes>
+    <node x="596.0" y="0.0">nl.jwienk.MainTest</node>
+    <node x="13.0" y="543.0">nl.jwienk.MinHeap</node>
+    <node x="0.5" y="711.0">nl.jwienk.DynDSHeap</node>
+    <node x="296.0" y="0.0">nl.jwienk.MinHeapTest</node>
+    <node x="0.0" y="897.0">nl.jwienk.Main</node>
+    <node x="597.0" y="382.0">nl.jwienk.DynDSHeapTest</node>
+    <node x="0.0" y="0.0">nl.jwienk.Heap</node>
+  </nodes>
+  <notes />
+  <edges>
+    <edge source="nl.jwienk.MinHeap" target="nl.jwienk.Heap">
+      <point x="0.0" y="-59.0" />
+      <point x="0.0" y="246.5" />
+    </edge>
+    <edge source="nl.jwienk.DynDSHeap" target="nl.jwienk.MinHeap">
+      <point x="0.0" y="-70.5" />
+      <point x="0.0" y="59.0" />
+    </edge>
+  </edges>
+  <settings layout="Hierarchic Group" zoom="1.0" x="566.0" y="485.0" />
+  <SelectedNodes>
+    <node>nl.jwienk.DynDSHeapTest</node>
+  </SelectedNodes>
+  <Categories>
+    <Category>Fields</Category>
+    <Category>Constructors</Category>
+    <Category>Methods</Category>
+    <Category>Properties</Category>
+  </Categories>
+  <SCOPE>All</SCOPE>
+  <VISIBILITY>private</VISIBILITY>
+</Diagram>
+
