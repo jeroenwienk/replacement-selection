@@ -22,7 +22,7 @@ public class Main {
     Scanner in = new Scanner(inFile);
     PrintWriter out = new PrintWriter(outFile);
 
-    Result result = replacementSelection(in, out, 3);
+    Result result = replacementSelection(in, out, 4);
     result.print();
   }
 

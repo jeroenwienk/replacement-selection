@@ -37,8 +37,9 @@ public class DynDSHeapTest {
     assertEquals(1, heap.getDeadSpace());
 
     heap.removeHighestPriority();
+    heap.removeHighestPriority();
     heap.insertIntoDeadSpace(2);
-    assertEquals(2, heap.getHeapSize());
+    assertEquals(1, heap.getHeapSize());
     assertEquals(2, heap.getMaxHeapSize());
     assertEquals(2, (int) heap.getElementAtIndex(2));
     assertEquals(2, heap.getDeadSpace());

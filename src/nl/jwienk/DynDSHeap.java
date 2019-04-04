@@ -21,7 +21,7 @@ public class DynDSHeap<T extends Comparable> extends MinHeap<T> {
   public void insertIntoDeadSpace(T element) {
     this.deadSpace++;
     this.decreaseMaxHeapSize();
-    this.getArray()[this.getHeapSize()] = element;
+    this.getArray()[this.getMaxHeapSize()] = element;
   }
 
   /**
