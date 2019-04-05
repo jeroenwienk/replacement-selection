@@ -36,7 +36,7 @@ public class MinHeap<T extends Comparable> extends Heap<T> {
 
     if (leftIndex != -1 && rightIndex != -1) {
 
-      if (getElementAtIndex(leftIndex).compareTo(getElementAtIndex(rightIndex)) < 0) {
+      if (this.getElementAtIndex(leftIndex).compareTo(this.getElementAtIndex(rightIndex)) < 0) {
         smallerIndex = leftIndex;
       } else {
         smallerIndex = rightIndex;
@@ -56,9 +56,9 @@ public class MinHeap<T extends Comparable> extends Heap<T> {
 
     // if smallerIndex element is smaller than index element
     // swap the elements and continue percolate down the value if needed
-    if (getElementAtIndex(smallerIndex).compareTo(getElementAtIndex(index)) < 0) {
-      swap(smallerIndex, index);
-      percolateDown(smallerIndex);
+    if (this.getElementAtIndex(smallerIndex).compareTo(this.getElementAtIndex(index)) < 0) {
+      this.swap(smallerIndex, index);
+      this.percolateDown(smallerIndex);
     }
 
   }
@@ -70,11 +70,11 @@ public class MinHeap<T extends Comparable> extends Heap<T> {
    */
   @Override
   protected void percolateUp(int index) {
-    int parentIndex = getParentIndex(index);
+    int parentIndex = this.getParentIndex(index);
 
-    if (parentIndex != -1 && getElementAtIndex(index).compareTo(getElementAtIndex(parentIndex)) < 0) {
-      swap(parentIndex, index);
-      percolateUp(parentIndex);
+    if (parentIndex != -1 && this.getElementAtIndex(index).compareTo(this.getElementAtIndex(parentIndex)) < 0) {
+      this.swap(parentIndex, index);
+      this.percolateUp(parentIndex);
     }
 
   }

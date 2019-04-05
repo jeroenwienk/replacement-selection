@@ -39,13 +39,55 @@ public class MainTest {
     StringWriter stringWriter = new StringWriter();
     PrintWriter out = new PrintWriter(stringWriter);
 
-    Result result = Main.replacementSelection(in, out, heapSize);
+    Result result = Main.replacementSelection(in, out, heapSize, Integer.class);
     String output = stringWriter.toString();
 
     assertEquals("" +
         "RUN0= 11 81 94 96 \n" +
         "RUN1= 12 17 28 35 41 58 75 99 \n" +
         "RUN2= 15 ", output);
+
+    assertEquals(4.333333333333333, result.getAverageRunSize(), 0);
+
+  }
+
+  @Test
+  public void sheetsExampleDoubles() throws HeapFullException, HeapEmptyException {
+    Double[] arr = {81.1, 94.2, 11.3, 96.6, 12.1, 35.8, 17.6, 99.1, 28.4, 58.3, 41.1, 75.9, 15.8};
+    Scanner in = new Scanner(Arrays.toString(arr).replaceAll("[^a-zA-Z0-9\\s.]", ""));
+    int heapSize = 3;
+
+    StringWriter stringWriter = new StringWriter();
+    PrintWriter out = new PrintWriter(stringWriter);
+
+    Result result = Main.replacementSelection(in, out, heapSize, Double.class);
+    String output = stringWriter.toString();
+
+    assertEquals("" +
+        "RUN0= 11.3 81.1 94.2 96.6 \n" +
+        "RUN1= 12.1 17.6 28.4 35.8 41.1 58.3 75.9 99.1 \n" +
+        "RUN2= 15.8 ", output);
+
+    assertEquals(4.333333333333333, result.getAverageRunSize(), 0);
+
+  }
+
+  @Test
+  public void sheetsExampleString() throws HeapFullException, HeapEmptyException {
+    String[] arr = {"Cow", "Milk", "Goat", "Cheese", "Boat", "Helmet", "Harbour", "Fish", "Internet", "Replacement", "Selection", "Heap", "MinHeap"};
+    Scanner in = new Scanner(Arrays.toString(arr).replaceAll("[^a-zA-Z0-9\\s.]", ""));
+    int heapSize = 3;
+
+    StringWriter stringWriter = new StringWriter();
+    PrintWriter out = new PrintWriter(stringWriter);
+
+    Result result = Main.replacementSelection(in, out, heapSize, String.class);
+    String output = stringWriter.toString();
+
+    assertEquals("" +
+        "RUN0= Cow Goat Milk \n" +
+        "RUN1= Boat Cheese Fish Harbour Helmet Internet Replacement Selection \n" +
+        "RUN2= Heap MinHeap ", output);
 
     assertEquals(4.333333333333333, result.getAverageRunSize(), 0);
 
@@ -60,7 +102,7 @@ public class MainTest {
     StringWriter stringWriter = new StringWriter();
     PrintWriter out = new PrintWriter(stringWriter);
 
-    Result result = Main.replacementSelection(in, out, heapSize);
+    Result result = Main.replacementSelection(in, out, heapSize, Integer.class);
     String output = stringWriter.toString();
 
     assertEquals("" +
@@ -80,7 +122,7 @@ public class MainTest {
     StringWriter stringWriter = new StringWriter();
     PrintWriter out = new PrintWriter(stringWriter);
 
-    Result result = Main.replacementSelection(in, out, heapSize);
+    Result result = Main.replacementSelection(in, out, heapSize, Integer.class);
     String output = stringWriter.toString();
 
     assertEquals("" +
@@ -98,7 +140,7 @@ public class MainTest {
     StringWriter stringWriter = new StringWriter();
     PrintWriter out = new PrintWriter(stringWriter);
 
-    Result result = Main.replacementSelection(in, out, heapSize);
+    Result result = Main.replacementSelection(in, out, heapSize, Integer.class);
     String output = stringWriter.toString();
 
     assertEquals("" +
@@ -128,7 +170,7 @@ public class MainTest {
     StringWriter stringWriter = new StringWriter();
     PrintWriter out = new PrintWriter(stringWriter);
 
-    Result result = Main.replacementSelection(in, out, heapSize);
+    Result result = Main.replacementSelection(in, out, heapSize, Integer.class);
 
     double high = 7;
     double low = 5;
@@ -143,7 +185,7 @@ public class MainTest {
     StringWriter stringWriter = new StringWriter();
     PrintWriter out = new PrintWriter(stringWriter);
 
-    Result result = Main.replacementSelection(in, out, heapSize);
+    Result result = Main.replacementSelection(in, out, heapSize, Integer.class);
 
     double high = 9;
     double low = 7;
@@ -158,7 +200,7 @@ public class MainTest {
     StringWriter stringWriter = new StringWriter();
     PrintWriter out = new PrintWriter(stringWriter);
 
-    Result result = Main.replacementSelection(in, out, heapSize);
+    Result result = Main.replacementSelection(in, out, heapSize, Integer.class);
 
     double high = 17.0;
     double low = 15.0;
@@ -173,7 +215,7 @@ public class MainTest {
     StringWriter stringWriter = new StringWriter();
     PrintWriter out = new PrintWriter(stringWriter);
 
-    Result result = Main.replacementSelection(in, out, heapSize);
+    Result result = Main.replacementSelection(in, out, heapSize, Integer.class);
 
     double high = 33.0;
     double low = 31.0;
@@ -188,7 +230,7 @@ public class MainTest {
     StringWriter stringWriter = new StringWriter();
     PrintWriter out = new PrintWriter(stringWriter);
 
-    Result result = Main.replacementSelection(in, out, heapSize);
+    Result result = Main.replacementSelection(in, out, heapSize, Integer.class);
 
     double high = 65.0;
     double low = 63.0;
@@ -203,7 +245,7 @@ public class MainTest {
     StringWriter stringWriter = new StringWriter();
     PrintWriter out = new PrintWriter(stringWriter);
 
-    Result result = Main.replacementSelection(in, out, heapSize);
+    Result result = Main.replacementSelection(in, out, heapSize, Integer.class);
 
     double high = 129.0;
     double low = 127.0;
@@ -218,7 +260,7 @@ public class MainTest {
     StringWriter stringWriter = new StringWriter();
     PrintWriter out = new PrintWriter(stringWriter);
 
-    Result result = Main.replacementSelection(in, out, heapSize);
+    Result result = Main.replacementSelection(in, out, heapSize, Integer.class);
 
     double high = 257.0;
     double low = 255.0;

@@ -16,6 +16,7 @@ public class DynDSHeap<T extends Comparable> extends MinHeap<T> {
 
   /**
    * Insert an element into the deadSpace of this heap.
+   *
    * @param element
    */
   public void insertIntoDeadSpace(T element) {
@@ -33,6 +34,7 @@ public class DynDSHeap<T extends Comparable> extends MinHeap<T> {
 
   /**
    * Get the current size of the deadSpace.
+   *
    * @return the size of the deadSpace
    */
   public int getDeadSpace() {
@@ -44,14 +46,15 @@ public class DynDSHeap<T extends Comparable> extends MinHeap<T> {
    * This is based on the size of the deadSpace.
    */
   public void buildHeap() {
-    this.setHeapSize(deadSpace);
+    this.setHeapSize(this.deadSpace);
 
     // we need to position the deadSpace elements at the front
-    for (int i = 0; i < deadSpace; i++) {
-      this.getArray()[i] = this.getArray()[this.getArray().length - deadSpace + i];
+    for (int i = 0; i < this.deadSpace; i++) {
+      this.getArray()[i] = this.getArray()[this.getArray().length - this.deadSpace + i];
     }
 
-    this.setMaxHeapSize(deadSpace);
+    this.setHeapSize(this.deadSpace);
+    this.setMaxHeapSize(this.getArray().length);
     this.resetDeadSpace();
     super.buildHeap();
   }

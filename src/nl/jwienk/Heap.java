@@ -31,8 +31,9 @@ public abstract class Heap<T extends Comparable> {
   public Heap(T[] array) {
     this.array = array;
     this.heapSize = array.length;
+
     this.maxHeapSize = array.length;
-    buildHeap();
+    this.buildHeap();
   }
 
   /**
@@ -42,9 +43,9 @@ public abstract class Heap<T extends Comparable> {
    * @param index2 second index to swap
    */
   public void swap(int index1, int index2) {
-    T tempValue = array[index1];
-    array[index1] = array[index2];
-    array[index2] = tempValue;
+    T tempValue = this.array[index1];
+    this.array[index1] = this.array[index2];
+    this.array[index2] = tempValue;
   }
 
   /**
@@ -58,9 +59,9 @@ public abstract class Heap<T extends Comparable> {
       throw new HeapFullException();
     }
 
-    array[heapSize] = element;
-    percolateUp(heapSize);
-    heapSize++;
+    this.array[heapSize] = element;
+    this.percolateUp(heapSize);
+    this.heapSize++;
   }
 
   /**
@@ -70,11 +71,11 @@ public abstract class Heap<T extends Comparable> {
    * @throws HeapEmptyException
    */
   public T removeHighestPriority() throws HeapEmptyException {
-    T element = getHighestPriority();
+    T element = this.getHighestPriority();
 
-    array[0] = array[heapSize - 1];
-    heapSize--;
-    percolateDown(0);
+    this.array[0] = this.array[this.heapSize - 1];
+    this.heapSize--;
+    this.percolateDown(0);
 
     return element;
   }
@@ -86,37 +87,37 @@ public abstract class Heap<T extends Comparable> {
    * @throws HeapEmptyException
    */
   public T getHighestPriority() throws HeapEmptyException {
-    if (heapSize == 0) {
+    if (this.heapSize == 0) {
       throw new HeapEmptyException();
     }
 
-    return array[0];
+    return this.array[0];
   }
 
   /**
    * Build the heap so that it satisfies the heap property.
    */
   public void buildHeap() {
-    int index = getParentIndex(heapSize - 1);
+    int index = this.getParentIndex(heapSize - 1);
     while (index >= 0) {
-      percolateDown(index);
+      this.percolateDown(index);
       index--;
     }
   }
 
   /**
-   * Not needed for this exercise but applies a heapSort
+   * Not needed for this, but applies a heapSort
    * to the current heap.
    */
   public void heapSort() {
-    buildHeap();
+    this.buildHeap();
 
-    int endIndex = heapSize - 1;
+    int endIndex = this.heapSize - 1;
     while (endIndex > 0) {
-      swap(0, endIndex);
+      this.swap(0, endIndex);
       endIndex--;
-      heapSize--;
-      percolateDown(0);
+      this.heapSize--;
+      this.percolateDown(0);
     }
     System.out.println(Arrays.toString(array));
   }
@@ -134,7 +135,7 @@ public abstract class Heap<T extends Comparable> {
    * @return Gets the current size of the heap
    */
   public int getHeapSize() {
-    return heapSize;
+    return this.heapSize;
   }
 
   /**
@@ -143,7 +144,7 @@ public abstract class Heap<T extends Comparable> {
    * @return Gets the current max size of the heap
    */
   public int getMaxHeapSize() {
-    return maxHeapSize;
+    return this.maxHeapSize;
   }
 
   public void setHeapSize(int size) {
@@ -160,7 +161,7 @@ public abstract class Heap<T extends Comparable> {
    * @return true if empty false otherwise
    */
   public boolean isEmpty() {
-    return heapSize == 0;
+    return this.heapSize == 0;
   }
 
   /**
@@ -169,11 +170,11 @@ public abstract class Heap<T extends Comparable> {
    * @return true if full false otherwise
    */
   public boolean isFull() {
-    return heapSize == maxHeapSize;
+    return this.heapSize == this.maxHeapSize;
   }
 
   public T[] getArray() {
-    return array;
+    return this.array;
   }
 
   /**
@@ -183,7 +184,7 @@ public abstract class Heap<T extends Comparable> {
    * @return element at requested index
    */
   public T getElementAtIndex(int index) {
-    return array[index];
+    return this.array[index];
   }
 
   /**
@@ -225,7 +226,7 @@ public abstract class Heap<T extends Comparable> {
    * @return index of the parent or -1 if index out of bounds
    */
   public int getParentIndex(int index) {
-    if (index < 0 || index > heapSize) {
+    if (index < 0 || index > this.heapSize) {
       return -1;
     }
 
